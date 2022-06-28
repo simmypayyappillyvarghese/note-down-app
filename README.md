@@ -15,13 +15,18 @@ Express.js defines the route to view the notes,to save the notes and delete the 
 - When the user click on save button,a fetch call goes to the backend which will save the new note with the
   unique id using the helper module to the json file using the defined POST route and return the new note as response.
 
-- When the user click on  teh delete button,a fetch call goes to server with the id and server using the defined DELETE route
+- When the user click on  the delete button,a fetch call goes to server with the id and server using the defined DELETE route
   remove the note from json and update the page.
 
 
 ### Links
 
+<br>
+
+
 ### Technologies and Packages Used
+
+<br>
 
 *   [x] EXPRESS PACKAGE
 *   [x] FS PACKAGE
@@ -30,5 +35,16 @@ Express.js defines the route to view the notes,to save the notes and delete the 
 *   [x] HTML,CSS
 
 
+<br>
+
 ### Screenshot
 
+Screenshot of Creating and Saving the Note
+
+<br>
+
+![Screenshot Note Creation](./public/assets/images/screenshot-note-added.png)
+
+<br>
+
+![Screenshot Note Creation](./public/assets/images/screenshot-note-saved.png)
