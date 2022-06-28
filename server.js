@@ -28,7 +28,7 @@ app.use(express.urlencoded({ extended: true }));
 //This route will return the notes.html file from public folder
 app.get("/notes",(req,res)=>{
    
-    console.log(`${req.method} request received by the server to send the notes.hml`);
+    console.log(`${req.method} request received by the server to send the notes.html`);
 
     res.sendFile(path.join(__dirname,'/public/notes.html'));
 });
@@ -126,7 +126,6 @@ app.delete('/api/notes/:id',(req,res)=>{
             res.json(`Received ${req.method} to remove the note and deleted the note`);
         }
     };
-    res.status(404).json(`Error;Note doesnt exist to be deleted`);
 
    
 })
@@ -135,7 +134,7 @@ app.delete('/api/notes/:id',(req,res)=>{
 //This wild route will return the index.html starting page of the application
 app.get("*",(req,res)=>{
     
-    console.log(`${req.method} request received by the server to send the index.hml`);
+    console.log(`${req.method} request received by the server to send the index.html`);
 
     res.sendFile(path.join(__dirname,'/public/index.html'));
 });
