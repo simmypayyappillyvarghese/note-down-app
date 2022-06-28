@@ -136,10 +136,9 @@ app.delete('/api/notes/:id',(req,res)=>{
 app.get("*",(req,res)=>{
     
     console.log(`${req.method} request received by the server to send the index.hml`);
-    
-    res.sendFile(path.join(__dirname,'index.html'));
-});
 
+    res.sendFile(path.join(__dirname,'/public/index.html'));
+});
 
 
 app.listen(PORT,()=>{console.log(`App Listening at http://localhost:${PORT}`)});
