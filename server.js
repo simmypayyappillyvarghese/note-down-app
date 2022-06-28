@@ -55,7 +55,6 @@ app.get('/api/notes',(req,res)=>{
     //Only if the title and text are not empty ,new note is created and saved
     if(title && text){
 
-
         const newNote={
             title,
             text,
@@ -102,19 +101,18 @@ app.get('/api/notes',(req,res)=>{
 
 //DELETE ROUTE
 
-
+//This will respond to the delete fetch call from the client
+//Look for the id in the notes array and remove it using splice method
+//Update the json file using write method of fs
+//If no match found respond with an error
 
 app.delete('/api/notes/:id',(req,res)=>{
 
-    console.log(req.params.id,"Id from request");
-    console.log(notes,"Current Notes Array");
 
    for(let i=0;i<notes.length;i++){
-
         if(notes[i].id===req.params.id){
       
             notes.splice(i,1);
-            console.log(notes,"Notes after delete");
 
             fs.writeFile('./db/db.json',JSON.stringify(notes,null,'\t\t'),(err)=>{
                 if(err){
@@ -128,19 +126,19 @@ app.delete('/api/notes/:id',(req,res)=>{
             res.json(`Received ${req.method} to remove the note and deleted the note`);
         }
     };
+    res.status(404).json(`Error;Note doesnt exist to be deleted`);
 
    
 })
 
 
-//This route will return the index.html starting page of the application
+//This wild route will return the index.html starting page of the application
 app.get("*",(req,res)=>{
     
     console.log(`${req.method} request received by the server to send the index.hml`);
+    
     res.sendFile(path.join(__dirname,'index.html'));
 });
-
-
 
 
 
